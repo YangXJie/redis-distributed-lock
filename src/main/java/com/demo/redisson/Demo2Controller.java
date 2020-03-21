@@ -20,10 +20,12 @@ public class Demo2Controller {
         RLock rLock = redisson.getLock(lock);
 
         try {
+            //加锁
             rLock.lock();
             //todo 业务主体
             System.out.println("执行..............");
         } finally {
+            //解锁
             rLock.unlock();
         }
         return "suc";

@@ -46,6 +46,7 @@ public class Demo1Controller {
             //todo 业务主体
             System.out.println("执行..............");
         } finally {
+            //判断是否为同客户端删除
             if (clientId.equals(stringRedisTemplate.opsForValue().get(lock))) {
                 stringRedisTemplate.delete(lock);//执行结束或者业务代码异常时释放锁
             }
